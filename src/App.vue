@@ -31,11 +31,13 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('loadProfiles').then(() => {
-      this.view = 'profiles'
-    })
-    this.$store.dispatch('loadCategories')
-    this.$store.dispatch('retriveApiToken')
+    this.$store.dispatch('connectToDb').then(() => {
+      this.$store.dispatch('loadCategories')
+      this.$store.dispatch('retriveApiToken')
+      this.$store.dispatch('loadProfiles').then(() => {
+        this.view = 'profiles'
+      })
+    }).catch(err => {console.log(err)})
   },
   methods: {
     changeView (name) {

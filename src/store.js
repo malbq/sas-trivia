@@ -7,8 +7,6 @@ const client = Stitch.initializeDefaultAppClient('trivia-uleiu')
 const mongodb = client.getServiceClient(RemoteMongoClient.factory, "maurodev-trivia")
 const db = mongodb.db("trivia")
 
-client.auth.loginWithCredential(new AnonymousCredential()).catch(err => {console.log(err)})
-
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -51,6 +49,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    connectToDb () {
+      console.log('connecting to mongo cloud')
+      return client.auth.loginWithCredential(new AnonymousCredential())
+    },
     loadProfiles ({commit}) {
       console.log('loading profiles')
       return db.collection("profile").find().toArray().then(profiles => {
@@ -74,11 +76,9 @@ export default new Vuex.Store({
       })
     },
     loadCategories ({commit}) {
+      console.log('loading categories')
       return axios.get('https://opentdb.com/api_category.php').then(res => {
-        if (res.data.response_code === 0) {
-          localStorage.setItem('categories', JSON.stringify(res.data.trivia_categories))
-          commit('setCategories', res.data.trivia_categories)
-        }
+        commit('setCategories', res.data.trivia_categories)
       })
     },
     selectCategory ({commit, dispatch}, {category, fetchQuestion}) {
