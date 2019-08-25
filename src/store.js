@@ -74,21 +74,12 @@ export default new Vuex.Store({
       })
     },
     loadCategories ({commit}) {
-      if (localStorage.getItem('categories')) {
-        console.log('loading categories from localStorage')
-        return new Promise(resolve => {
-          commit('setCategories', JSON.parse(localStorage.getItem('categories')))
-          resolve()
-        })
-      } else {
-        console.log('loading categories from request')
-        return axios.get('https://opentdb.com/api_category.php').then(res => {
-          if (res.data.response_code === 0) {
-            localStorage.setItem('categories', JSON.stringify(res.data.trivia_categories))
-            commit('setCategories', res.data.trivia_categories)
-          }
-        })
-      }
+      return axios.get('https://opentdb.com/api_category.php').then(res => {
+        if (res.data.response_code === 0) {
+          localStorage.setItem('categories', JSON.stringify(res.data.trivia_categories))
+          commit('setCategories', res.data.trivia_categories)
+        }
+      })
     },
     selectCategory ({commit, dispatch}, {category, fetchQuestion}) {
       commit('setActiveCategory', category)
