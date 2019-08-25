@@ -1,0 +1,141 @@
+.result {
+  &.content {
+    margin: 0;
+
+    @media (max-width: $screen-xs) {
+      padding: 0;
+    }
+
+    @media (min-width: $screen-xs) {
+      margin: 1em;
+      height: calc(100vh - 87px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  button {
+    width: 100%;
+
+    @media (min-width: $screen-xs) {
+      width: auto;
+    }
+  }
+}
+
+.result-box.box {
+  width: 100%;
+  max-width: $result-max-width;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+
+  @media (max-width: $screen-xs) {
+    height: calc(100vh - 59px);
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+.result-congrats {
+  background-color: #438DE4;
+  color: #fff;
+  padding: 3em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $screen-xs) {
+    border-radius: 8px 8px 0 0;
+    margin: -1px -1px 0 -1px;
+  }
+}
+
+.result-congrats-msg {
+  text-align: center;
+  margin-left: 1em;
+}
+
+.result-congrats-main {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.result-check-msg {
+  background-color: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin: 0 auto;
+  font-size: .85em;
+  padding: .5em .75em;
+  width: 225px;
+  margin-top: -18px;
+  font-weight: bold;
+}
+
+.result-numbers {
+  padding: 1.5em;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-numbers-general {
+  background-color: #EFEFF2;
+  border-radius: 10px;
+  width: 180px;
+  display: flex;
+  text-align: center;
+  padding: .5em;
+
+  @media (min-width: $screen-xs) {
+    margin-top: 1.5em;
+  }
+}
+
+.result-numbers-rights,
+.result-numbers-wrongs {
+  width: 50%;
+}
+
+.result-numbers-general-value {
+  font-size: 1.75em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.result-numbers-general-label {
+  font-size: .85em;
+}
+
+.result-numbers-detail {
+  font-size: .85em;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1em 0;
+  text-align: center;
+
+  @media (min-width: $screen-xs) {
+    flex-direction: row;
+    width: 100%;
+    justify-content: normal;
+    margin: 2.5em 0;
+  }
+}
+
+.result-numbers-detail-set {
+  @media (min-width: $screen-xs) {
+    flex: 1 0 33.33%;
+    border-right: 1px solid #B8BED5;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

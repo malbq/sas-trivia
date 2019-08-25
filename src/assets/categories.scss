@@ -1,0 +1,39 @@
+.categories {
+    &.content {
+        max-width: $main-max-width;
+    }
+    & > header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+.categories-list {
+    li {
+        flex: 0 0 50%;
+        max-width: 50%;
+        span {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        @media (min-width: $screen-xs) {
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+        }
+        @media (min-width: $screen-sm) {
+            font-size: 1em;
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+    }
+}
+
+.category {
+    min-height: 8em;
+    height: 12vw;
+    padding: .75em 1em;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
