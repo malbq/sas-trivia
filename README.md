@@ -1,4 +1,4 @@
-# trivia
+# SAS Tech Test - Trivia
 
 ## Project setup
 ```
@@ -29,3 +29,36 @@ npm run test:e2e
 ```
 npm run test:unit
 ```
+
+## Deploy
+
+Variáveis de ambiente:
+
+- PUBLIC_PATH=/sas-trivia/
+- STITCH_APP_ID=trivia-uleiu
+- STITCH_LINKED_CLUSTER=maurodev-trivia
+- DB_NAME=trivia
+
+### MongoDBCloud setup
+
+#### Stitch App
+
+Settings > Allowed Request Origins > + Add Allowed Request Origin > Save
+Deploy > Review & Deploy Changes > Deploy
+
+### Zeit
+
+Settings > Tokens > Create
+New Token Name: CI
+Create Token
+Copy token
+
+### Circle CI Setup
+
+Project Settings > Build Settings/Environment Variables > Add Variable
+Name: NOW_TOKEN
+Value: Token from Zeit
+
+## Run
+
+https://trivia.<username>.now.sh/

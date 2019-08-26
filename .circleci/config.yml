@@ -12,7 +12,7 @@ jobs:
             - v3-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v3-dependencies-
-      # - run: npm install
+      
       - run: npm ci
 
       - save_cache:
@@ -25,13 +25,9 @@ jobs:
       # run tests!
       - run: npm run test:unit
       - run: npm run test:e2e
+      
       - run:
+          name: deploy
           command: |
-            git checkout -b gh-pages
             npm run build
-            sed -i 's/\/dist/# \/dist/' .gitignore
-            git config user.email 'maurogadelhaa@gmail.com'
-            git config user.name 'Mauro Gadelha [CI]'
-            git add dist && git commit -m "[skip ci]dist subtree commit"
-            git push origin --delete gh-pages
-            git subtree push --prefix dist origin gh-pages
+            now dist -A ../now.json -t ${NOW_TOKEN}

@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/sas-trivia/'
-    : '/'
+  productionSourceMap: false,
+  pwa: {
+    themeColor: '#343c58'
+  }
 }
