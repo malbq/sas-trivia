@@ -25,11 +25,13 @@ jobs:
       # run tests!
       - run: npm run test:unit
       - run: npm run test:e2e
-      - run: git checkout -b gh-pages
-      - run: npm run build
-      - run: sed -i 's/\/dist/# \/dist/' .gitignore
-      - run: git config user.email 'maurogadelhaa@gmail.com'
-      - run: git config user.name 'Mauro Gadelha [CI]'
-      - run: git add dist && git commit -m "[skip ci]dist subtree commit"
-      - run: git subtree push --prefix dist origin gh-pages
-      #- run: deleta branch gh-pages
+      - run:
+          command: |
+            git checkout -b gh-pages
+            npm run build
+            sed -i 's/\/dist/# \/dist/' .gitignore
+            git config user.email 'maurogadelhaa@gmail.com'
+            git config user.name 'Mauro Gadelha [CI]'
+            git add dist && git commit -m "[skip ci]dist subtree commit"
+            git push origin --delete gh-pages
+            git subtree push --prefix dist origin gh-pages
