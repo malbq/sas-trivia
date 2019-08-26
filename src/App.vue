@@ -35,7 +35,7 @@ export default {
       this.$store.dispatch('loadProfiles').then(() => {
         this.view = 'profiles'
       })
-    }).catch(err => {console.log(err)})
+    })
   },
   methods: {
     changeView (name) {
