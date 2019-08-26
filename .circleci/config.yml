@@ -20,4 +20,11 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm test
+      - run: npm run test:unit
+      - run: npm run test:e2e
+      - run: git checkout -b gh-pages
+      - run: npm run build
+      - run: sed -i 's/\/dist/# \/dist/' .gitignore
+      - run: git add dist && git commit -m "dist subtree commit"
+      - run: git subtree push --prefix dist origin gh-pages
+      #- run: deleta branch gh-pages

@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <header class="app-header">
-      <h1>
-        Teste Dev Frontend
-      </h1>
+      <h1>SAS Trivia</h1>
     </header>
     <transition>
       <component :is="view" class="content" @goto="changeView">
