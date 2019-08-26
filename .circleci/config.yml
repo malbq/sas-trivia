@@ -28,6 +28,8 @@ jobs:
       - run: git checkout -b gh-pages
       - run: npm run build
       - run: sed -i 's/\/dist/# \/dist/' .gitignore
-      - run: git add dist && git commit -m "dist subtree commit"
+      - run: git config user.email 'maurogadelhaa@gmail.com'
+      - run: git config user.name 'Mauro Gadelha [CI]'
+      - run: git add dist && git commit -m "[skip ci]dist subtree commit"
       - run: git subtree push --prefix dist origin gh-pages
       #- run: deleta branch gh-pages
