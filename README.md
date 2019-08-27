@@ -94,7 +94,7 @@ Por último, no gerenciador do CircleCI clique em *Project Settings* (a engrenag
 
 # App
 
-https://trivia.\<username\>.now.sh
+`https://trivia.<username>.now.sh`
 
 # Demo
 
