@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     selectCategory (category) {
-      var completed = this.profile.result.hasOwnProperty(category.id) && this.profile.result[category.id].length === 10
+      var completed = this.profile.result.hasOwnProperty(category.id) && this.profile.result[category.id].length === parseInt(process.env.VUE_APP_TOTAL_QUESTIONS)
       this.$store.dispatch('selectCategory', {category: category, fetchQuestion: !completed}).then(() => {
         if (completed) {
           this.$emit('goto', 'result')

@@ -1,5 +1,5 @@
 const delay = 2 * 180 // 2 * transition duration
-var categorySelected
+var selCatName, selCatId, catsLength
 describe('Trivia', () => {
   it('Start', () => {
     cy.visit('/')
@@ -26,15 +26,16 @@ describe('Trivia', () => {
     cy.wait(delay)
     cy.get('.content h2').contains('Categories')
     cy.get('.category').should($cats => {
-      const $cat = $cats.eq(Math.floor(Math.random() * $cats.length))
-      categorySelected = $cat.text()
-      console.log(categorySelected)
+      catsLength = $cats.length
+      selCatId = Math.floor(Math.random() * catsLength)
+      const $cat = $cats.eq(selCatId)
+      selCatName = $cat.text()
       $cat.click()
     })
   })
   it('Question', () => {
     cy.wait(delay)
-    cy.get('.question-category').contains(categorySelected)
+    cy.get('.question-category').contains(selCatName)
     cy.get('.content h2').contains('Question 1')
     cy.get('.question-difficulty-medium')
 
@@ -132,7 +133,11 @@ describe('Trivia', () => {
   it('Controls', () => {
     cy.wait(delay)
     cy.get('.content h2').contains('Categories')
-    cy.get('.category').first().click()
+    cy.get('.category').contains(selCatName).click()
+    cy.wait(delay)
+    cy.get('.result-numbers button').click()
+    cy.wait(delay)
+    cy.get('.category').eq(selCatId < catsLength-1 ? selCatId + 1 : 0).click()
     cy.wait(delay)
     cy.get('.content header .close').click()
     cy.wait(delay)

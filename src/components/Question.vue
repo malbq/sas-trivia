@@ -51,7 +51,8 @@
 <script>
 import Lightbox from "@/components/Lightbox"
 import { mapState } from 'vuex'
-const N = 2, T = 10
+const N = parseInt(process.env.VUE_APP_WRONG_QUESTIONS),
+      T = parseInt(process.env.VUE_APP_TOTAL_QUESTIONS)
 
 export default {
   components: {
@@ -95,6 +96,11 @@ export default {
         i++
       }
       return shuffled
+    }
+  },
+  created () {
+    if (this.profile.result.hasOwnProperty(this.category.id)) {
+      this.questionNumber = this.profile.result[this.category.id].length + 1
     }
   },
   methods: {
