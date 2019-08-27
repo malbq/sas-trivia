@@ -8,8 +8,11 @@ O app utiliza os seguintes serviços:
 
 ## Versões de software utilizado
 
-**Node.js**: v10.14.2
-**npm**: 6.4.1
+**Node.js**: v10.14.2  
+**npm**: 6.4.1  
+**Vue**: 2.6.10  
+
+Para mais detalhes, confirerir `package.json`
 
 ## MongoDBCloud (setup inicial)
 
