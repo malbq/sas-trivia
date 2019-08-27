@@ -6,13 +6,12 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      # Download and cache dependencies
+
+      # Build
       - restore_cache:
           keys:
             - v4-dependencies-{{ checksum "package.json" }}
-      
       - run: npm ci
-
       - save_cache:
           paths:
             # - node_modules
@@ -20,10 +19,11 @@ jobs:
             - ~/.cache
           key: v4-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
+      # Test
       - run: npm run test:unit
-      - run: npm run test:e2e
-
+      - run: npm run test:hlui
+      
+      # Deploy
       - run:
           name: deploy
           command: |

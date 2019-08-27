@@ -37,7 +37,8 @@ Os testes unitários utilizam o framework de testes [Jest](https://jestjs.io).
 Para executá-los: `npm run test:unit`
 
 Os testes de integração (UI) utilizam a ferramenta [Cypress](https://www.cypress.io).
-Para executá-los: `npm run test:e2e`
+Para executar no navegador: `npm run test:ui`
+Para executar somente no terminal (headless): `npm run test:hlui`
 
 Para executar todos os testes no ambiente de desenvolvimento, basta executar o comando `npm run test`.
 
@@ -95,4 +96,8 @@ Por último, no gerenciador do CircleCI clique em *Project Settings* (a engrenag
 
 # App
 
-https://trivia.\<username>.now.sh/
+https://trivia.\<username>.now.sh
+
+# Demo
+
+https://trivia.maurogadelha.now.sh

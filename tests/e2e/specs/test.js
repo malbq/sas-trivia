@@ -1,3 +1,4 @@
+const delay = 2 * 180 // 2 * transition duration
 var categorySelected
 describe('Trivia', () => {
   it('Start', () => {
@@ -22,7 +23,7 @@ describe('Trivia', () => {
     cy.get('.profile').last().parent().prev().contains('Name').click()
   })
   it('Categories', () => {
-    cy.wait(180)
+    cy.wait(delay)
     cy.get('.content h2').contains('Categories')
     cy.get('.category').should($cats => {
       const $cat = $cats.eq(Math.floor(Math.random() * $cats.length))
@@ -32,7 +33,7 @@ describe('Trivia', () => {
     })
   })
   it('Question', () => {
-    cy.wait(180)
+    cy.wait(delay)
     cy.get('.question-category').contains(categorySelected)
     cy.get('.content h2').contains('Question 1')
     cy.get('.question-difficulty-medium')
@@ -115,7 +116,7 @@ describe('Trivia', () => {
     .find('button').click()
   })
   it('Result', () => {
-    cy.wait(180)
+    cy.wait(delay)
     cy.get('.result-numbers-rights .result-numbers-general-value').contains('6')
     cy.get('.result-numbers-wrongs .result-numbers-general-value').contains('4')
     cy.get('.result-numbers-detail-set').should($details => {
@@ -129,11 +130,12 @@ describe('Trivia', () => {
     cy.get('.result-numbers button').click()
   })
   it('Controls', () => {
-    cy.wait(180)
+    cy.wait(delay)
     cy.get('.content h2').contains('Categories')
     cy.get('.category').first().click()
+    cy.wait(delay)
     cy.get('.content header .close').click()
-    cy.wait(180)
+    cy.wait(delay)
     cy.get('.content h2').contains('Categories')
   })
 })
