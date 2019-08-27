@@ -2,9 +2,9 @@
 
 O app utiliza os seguintes serviços:
 
-[MongoDB Cloud](https://cloud.mongodb.com): Armazenagem de dados
-[Circle CI](https://circleci.com/signup): Integração contínua
-[Zeit](https://zeit.co/signup): Plataforma de deploy
+[MongoDB Cloud](https://cloud.mongodb.com): Armazenagem de dados  
+[Circle CI](https://circleci.com/signup): Integração contínua  
+[Zeit](https://zeit.co/signup): Plataforma de deploy  
 
 ## Versões de software utilizado
 
