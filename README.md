@@ -26,8 +26,8 @@ Durante a criação, guarde o valor do campo *Stitch Service Name* (default *'mo
     VUE_APP_STITCH_SERVICE=mongodb-atlas
     VUE_APP_DB=trivia
     ```
-    *VUE_APP_STITCH_APP_ID: App ID, encontrado na barra lateral do gerenciador da aplicação Stitch*
-    *VUE_APP_STITCH_SERVICE: Campo 'Stitch Service Name' no formulário de criação da aplicação Stitch (geralmente 'mongodb-atlas')*
+    *VUE_APP_STITCH_APP_ID: App ID, encontrado na barra lateral do gerenciador da aplicação Stitch*  
+    *VUE_APP_STITCH_SERVICE: Campo 'Stitch Service Name' no formulário de criação da aplicação Stitch (geralmente 'mongodb-atlas')*  
     *VUE_APP_DB: Nome do banco de dados*
 4. `npm run dev`
 
