@@ -198,10 +198,6 @@ ul.grid {
   transition: opacity 180ms ease-out;
 }
 
-.v-leave-active+.v-enter-active {
-  transition-delay: 180ms;
-}
-
 .v-enter,
 .v-leave-to {
   opacity: 0;

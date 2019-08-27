@@ -30,8 +30,19 @@
 }
 
 .category {
-    min-height: 8em;
-    height: 12vw;
+    height: 6em;
+    @media (min-width: $screen-xs) {
+        height: 7em;
+    }
+    @media (min-width: $screen-sm) {
+        height: 8em;
+    }
+    @media (min-width: $screen-md) {
+        height: 8.5em;
+    }
+    @media (min-width: $screen-lg) {
+        height: 9em;
+    }
     padding: .75em 1em;
     display: flex;
     align-items: flex-end;

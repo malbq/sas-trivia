@@ -59,6 +59,7 @@ export default {
   },
   data () {
     return {
+      questionNumber: 1,
       selectedOption: -1,
       result: {
         chosen: false,
@@ -75,9 +76,6 @@ export default {
       category: 'activeCategory',
       question: 'activeQuestion'
     }),
-    questionNumber () {
-      return this.profile.result.hasOwnProperty(this.category.id) ? this.profile.result[this.category.id].length + 1 : 1
-    },
     difficultyText () {
       return this.question.difficulty.slice(0,1).toUpperCase() + this.question.difficulty.slice(1)
     },
@@ -149,6 +147,7 @@ export default {
         this.$store.dispatch('sendAnswer', this.answer).then(() => {
           if (this.profile.result[this.category.id].length < T) {
             this.$store.dispatch('loadQuestion', this.nextDifficulty).then(() => {
+              this.questionNumber = this.profile.result[this.category.id].length + 1
               this.selectedOption = -1
               this.result.chosen = false
               this.sending = false

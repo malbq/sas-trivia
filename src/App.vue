@@ -3,7 +3,7 @@
     <header class="app-header">
       <h1>SAS Trivia</h1>
     </header>
-    <transition>
+    <transition mode="out-in">
       <component :is="view" class="content" @goto="changeView">
       </component>
     </transition>

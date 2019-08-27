@@ -3,9 +3,9 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import {Stitch, RemoteMongoClient, AnonymousCredential} from 'mongodb-stitch-browser-sdk'
 
-const client = Stitch.initializeDefaultAppClient('trivia-uleiu')
-const mongodb = client.getServiceClient(RemoteMongoClient.factory, "maurodev-trivia")
-const db = mongodb.db("trivia")
+const client = Stitch.initializeDefaultAppClient(process.env.VUE_APP_STITCH_APP_ID)
+const mongodb = client.getServiceClient(RemoteMongoClient.factory, process.env.VUE_APP_STITCH_SERVICE)
+const db = mongodb.db(process.env.VUE_APP_DB)
 
 Vue.use(Vuex)
 
