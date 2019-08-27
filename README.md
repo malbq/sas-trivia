@@ -12,7 +12,7 @@ O app utiliza os seguintes serviços:
 **npm**: 6.4.1  
 **Vue**: 2.6.10  
 
-Para mais detalhes, confirerir `package.json`
+Para mais detalhes, conferir `package.json`
 
 ## MongoDBCloud (setup inicial)
 
