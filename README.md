@@ -75,7 +75,7 @@ New Token Name: *CI*
 Para que o app consiga acessar o banco de dados, o endereço do app no Zeit deverá ser adicionado à lista de origens autorizadas no Stitch:
 
 *Settings* > *Allowed Request Origins* > *+ Add Allowed Request Origin*  
-Digite: *https://trivia.\<username>.now.sh/*  
+Digite: `https://trivia.<username>.now.sh/`  
 *Save*  
 *Deploy* > *Review & Deploy Changes* > *Deploy*
 
