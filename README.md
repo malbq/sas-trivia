@@ -46,7 +46,7 @@ O app está configurado para rodar na plataforma [Zeit](https://zeit.co).
 
 ### Manual
 
-Para fazer deploy manual para o Zeit, devemos usar o programa [now](https://www.npmjs.com/package/now):
+Para fazer deploy manual para o Zeit, você deve usar o programa [now](https://www.npmjs.com/package/now):
 ```
 npm install -g now
 npm run build
@@ -56,7 +56,7 @@ now dist -A ../now.json
 
 ### Integração contínua
 
-Foi utilizado o [CircleCI](https://circleci.com) para CI/CD com apenas um job, executado sempre que é feito um `git push` para o repositório do Github.
+Foi utilizado o [CircleCI](https://circleci.com) para CI/CD, com apenas um job, executado sempre que é feito um `git push` para o repositório do Github.
 
 A configuração pode ser conferida no arquivo `.circleci/config.yml`.
 
