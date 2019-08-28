@@ -3,9 +3,14 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import {Stitch, RemoteMongoClient, AnonymousCredential} from 'mongodb-stitch-browser-sdk'
 
-const client = Stitch.initializeDefaultAppClient(process.env.VUE_APP_STITCH_APP_ID)
-const mongodb = client.getServiceClient(RemoteMongoClient.factory, process.env.VUE_APP_STITCH_SERVICE)
-const db = mongodb.db(process.env.VUE_APP_DB)
+var client
+var mongodb
+var db
+if (process.env.VUE_APP_STITCH_APP_ID && process.env.VUE_APP_STITCH_SERVICE && process.env.VUE_APP_DB) {
+  client = Stitch.initializeDefaultAppClient(process.env.VUE_APP_STITCH_APP_ID)
+  mongodb = client.getServiceClient(RemoteMongoClient.factory, process.env.VUE_APP_STITCH_SERVICE)
+  db = mongodb.db(process.env.VUE_APP_DB)
+}
 
 Vue.use(Vuex)
 
