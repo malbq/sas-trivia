@@ -4,7 +4,7 @@ import storeReal from './store'
 import storeMock from './store.mock'
 import './registerServiceWorker'
 
-const store = process.env.NODE_ENV === 'production' ? storeReal : storeMock
+const store = process.env.NODE_ENV === 'test' ? storeMock : storeReal
 
 Vue.config.productionTip = false
 
